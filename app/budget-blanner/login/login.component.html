@@ -1,0 +1,41 @@
+<div class="navbar">
+    <h2>
+        Planificateur budgétaire
+    </h2>
+
+</div>
+<div class="login-container">
+<!-- La formulaire -->
+<form *ngIf="activeForm === 'login'" [formGroup]="loginForm" (ngSubmit)="login()">
+    <h2>Connexion</h2>
+    <div class="form-group">
+        <input type="email" formControlName="email" placeholder="Email" />
+    </div>
+    <div class="form-group">
+        <input type="password" formControlName="password" placeholder="Mot de passe" />
+    </div>
+    <button type="submit">Se connecter</button>
+    <p (click)="toggleForm('register')">J'ai pas de compte?
+        <span class="highlighted">Creer un compte</span>
+
+    </p>
+</form>
+<!-- Partie Connexion-->
+<form *ngIf="activeForm === 'register'" [formGroup]="loginForm" (ngSubmit)="register()">
+    <h2>Creer un compte</h2>
+    <div class="form-group">
+        <input type="text" formControlName="username" placeholder="Nom d'utilisateur" />
+    </div>
+    <div class="form-group">
+        <input type="email" formControlName="email" placeholder="Email" />
+    </div>
+    <div class="form-group">
+        <input type="password" formControlName="password" placeholder="Mot de passe" />
+    </div>
+    <button type="submit">Creer</button>
+    <p (click)="toggleForm('login')">J'ai un compte
+        <span class="highlighted">Se connecter</span>
+
+    </p>
+</form>
+</div>
